@@ -87,7 +87,7 @@ a name="readme-top"></a>
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 
-- [Live Demo Link](https://recipify-fzyk.onrender.com)
+- [Live Demo Link](https://recipify-eak3.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
