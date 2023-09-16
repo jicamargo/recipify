@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to Recipify</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "welcome.css" %>
+  </head>
+
+  <body>
+    <div class="welcome-cnt px-md-5 px-sm-3">
+      <div class="welcome-text-cnt text-center m-md-5 px-md-5">
+        <div class="container notices-cnt p-1">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+
+        <h1 class="display-1 text-primary-emphasis m-3">Welcome to Recipify</h1>
+        <h2 class="text-primary-emphasis m-3">Your Ultimate Recipe Companion</h2>
+        <h2 class="text-primary-emphasis m-3">Discover and Create Delicious Recipes</h2>
+
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+</html>

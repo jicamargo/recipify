@@ -1,0 +1,9 @@
+    <li class="list-group-item mb-1 container">
+    <div class=row>
+      <div class="col-3">
+        <%= content_tag :h3, recipe.name %>
+        <%= button_to "REMOVE", recipe, method: :delete, class:"btn btn-danger" %>
+      </div>
+      <%= content_tag :p, recipe.description.truncate(200), class:'col ps-5 text-start' %>
+    </div>
+    </li>

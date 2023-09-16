@@ -1,0 +1,12 @@
+<div class='container py-2 border rounded shadow bg-white bg-opacity-10 center'>
+  <h1>Editing food</h1>
+
+  <%= render "form", food: @food %>
+
+  <br>
+
+  <div class="container mt-3">
+    <%= link_to "Cancel and Back to foods", foods_path, class: 'btn btn-secondary btn-sm mr-4' %>
+  </div>
+
+</div>

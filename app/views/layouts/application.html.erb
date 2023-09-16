@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipify</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "recipify.css" %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light px-5">
+      <div>
+        <a class="navbar-brand" href="/">Recipify</a>
+        <% if user_signed_in? %>
+          <span class="circle-badge text-bg-info">
+            <%= current_user.name.split(' ').map { |word| word[0] }.join.upcase %>
+          </span>
+        <% end %>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-collapse flex-row-reverse" id="navbarNav">
+          <ul class="navbar-nav gap-1">
+            <li class="nav-item">
+              <a class="nav-link" href="/foods">Foods</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recipes">My Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/recipes_public">Public Recipes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/shopping_list">Shopping List</a>
+            </li>
+            <li class="nav-item">
+              <% unless user_signed_in? %>
+                <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %>
+              <% end %>
+              <% if user_signed_in? %>
+                <%= link_to 'Sign out', custom_destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <div id="overlay"></div>
+    <div id="menuDropdown" class="collapse navbar-collapse">
+      <ul class="navbar-nav gap-1">
+        <li class="nav-item">
+          <a class="nav-link" href="/foods">Foods</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recipes">My Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recipes_public">Public Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/shopping_list">Shopping List</a>
+        </li>
+        <li class="nav-item">
+          <% unless user_signed_in? %>
+            <%= link_to 'Sign in', new_user_session_path, class: "nav-link" %>
+          <% end %>
+          <% if user_signed_in? %>
+            <%= link_to 'Sign out', custom_destroy_user_session_path, method: :delete, class: "nav-link" %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="app-cnt text-center">    
+      <div class="container notices-cnt p-2">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag 'navbar' %>
+  </body>
+</html>

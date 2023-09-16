@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<div class='container d-flex justify-content-start' >
+  <h1>Public Recipes</h1>
+</div>
+
+<ul class = "list-group">
+  <% @recipes.includes(:user).each do |recipe| %>
+    <li class="list-group-item mb-1 container">
+    <div class=row>
+      <div class="col">
+        <h3><%= link_to recipe.name, recipe, class: "text-decoration-none color text-reset"%><h3>
+        <%= content_tag :p, "By: #{recipe.user.name}" %>
+      </div>
+      <div class='col'>
+        <%= content_tag :p, "Total food items: #{recipe.foods.count}" %>
+        <%= content_tag :p, "Total Price: #{recipe.recipe_foods.includes(:food).map{|f| f.quantity * f.food.price}.sum}"%>
+      </div>
+    </div>
+    </li>
+  <% end %>
+<ul>

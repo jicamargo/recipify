@@ -1,0 +1,36 @@
+:root {
+  --app-primary-color: #007bff;
+  --app-secondary-color: #6c757d;
+  --app-success-color: #28a745;
+  --app-info-color: #17a2b8;
+  --app-warning-color: #ffc107;
+  --app-danger-color: #dc3545;
+  --background-color: #f8f9fa;
+  --navbar-bg-color: #343a40;
+  --text-color: #333;
+  --link-color: #007bff;
+}
+
+body {
+  background-image: url('welcome.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+}
+
+.welcome-cnt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.notice {
+  color: #28a745;
+}
+
+.alert {
+  color: #dc3545;
+}

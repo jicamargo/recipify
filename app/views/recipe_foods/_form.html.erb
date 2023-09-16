@@ -1,0 +1,27 @@
+<%= form_with(model: recipe_food) do  |f| %>
+  <% if recipe_food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+
+      <ul>
+        <% recipe_food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.hidden_field :recipe_id, value: recipe_food.recipe_id %>
+<div>
+  <%= f.label :foods, 'Select food item' %>
+  <%= f.collection_select  :food_id, @foods, :id, :name %>
+</div>
+  <br>
+<div>
+  <%= f.label :quantity, 'Quantity' %>
+  <%= f.number_field :quantity %>
+</div>
+  <br>
+  <div>
+  <%= f.submit %>
+  </div>
+<% end %>

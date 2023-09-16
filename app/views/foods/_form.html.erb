@@ -1,0 +1,39 @@
+<div class='container pt-3'>
+  <%= form_with(model: food) do |form| %>
+    <% if food.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+        <ul>
+          <% food.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+      <%= form.label :name, class: 'col-form-label col-2 label-right px-2' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2 ">
+      <%= form.label 'M/Unit:', class: 'col-form-label col-4 label-right px-2' %>
+      <%= form.select :measurement_unit, FIXED_MEASUREMENT_UNITS, { prompt: "Select a Measurement Unit" }, class: 'form-control' %>
+    </div>
+
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+      <%= form.label :price, class: 'col-form-label col-4 label-right px-2' %>
+      <%= form.text_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="d-flex flex-row align-items-center justify-content-center mb-2">
+      <%= form.label :quantity, class: 'col-form-label col-4 label-right px-2' %>
+      <%= form.number_field :quantity, class: 'form-control' %>
+    </div>
+
+    <div  class="mt-5">
+      <%= form.submit class: 'btn btn-primary btn-sm' %>
+    </div>
+  <% end %>
+</div>
