@@ -1,11 +1,14 @@
-<p style="color: green"><%= notice %></p>
-<div class='container d-flex justify-content-between' >
-  <h1>Recipes</h1>
-  <%= button_to "New recipe", { :action => "new" }, method: :get, class:"btn btn-primary"%>
-</div>
+<div class="container">
+  <h1 class="display-4 py-3">My Recipes</h1>
+  <div class="row py-1">
+    <div class="col-12 text-right label-right">
+      <%= button_to "New recipe", { :action => "new" }, method: :get, class:"btn btn-primary px-sm-2 px-md-3"%>
+    </div>
+  </div>
 
-<ul class = "list-group">
-  <% @recipes.each do |recipe| %>
-      <%= link_to (render recipe), recipe, class:'text-decoration-none' %>
-  <% end %>
-<ul>
+  <ul class = "list-group">
+    <% @recipes.each do |recipe| %>
+        <%= link_to (render recipe), recipe, class:'text-decoration-none' %>
+    <% end %>
+  <ul>
+</div>
